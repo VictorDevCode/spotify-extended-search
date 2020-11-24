@@ -1,0 +1,34 @@
+nav.navbar.is-black(role="navigation", aria-label="main navigation")
+    div.container
+        div.navbar-brand
+            a.navbar-item.has-text-weight-bold(href="/") Spotify API Showcase
+            a.navbar-burger.burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarMenu")
+                span(aria-hidden="true")
+                span(aria-hidden="true")
+                span(aria-hidden="true")
+
+
+        div#navbarMenu.navbar-menu
+            div.navbar-start
+                a.navbar-item(href="/artists")
+                    span.icon
+                        i.fas.fa-users 
+                    span Artists
+                a.navbar-item(href="/albums")
+                    span.icon
+                        i.fas.fa-compact-disc
+                    span Albums
+                a.navbar-item(href="/tracks")
+                    span.icon
+                        i.fas.fa-music
+                    span Tracks
+
+            div.navbar-end
+                div.navbar-item
+                    if user
+                        a(href=user.profileUrl)
+                            span.icon
+                                i.fab.fa-spotify
+                            span Logged as: #{user.username}
+                    else 
+                        a(href="/auth/spotify") Log in with Spotify

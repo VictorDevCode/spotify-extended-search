@@ -1,0 +1,66 @@
+extends layout
+
+block content
+    section.section
+        div.container
+            div.columns.is-vcentered
+                div.column.is-narrow
+                    figure.image.is-128x128
+                        img.is-rounded(src=album.info.images[0].url)
+                div.column
+                    h1.title.is-1.has-text-light #{album.info.name}
+                        div.tag.is-info.is-medium.is-capitalized
+                            span.icon
+                                i.fas.fa-compact-disc
+                            span #{album.info.album_type}                        
+                        div.tag.is-info.is-medium
+                            span.icon
+                                i.far.fa-calendar
+                            span= album.info.release_date
+                    div.columns
+                        div.column.is-narrow
+                            a.button.is-success(href=album.info.external_urls.spotify, target="_blank") 
+                                span.icon
+                                    i.fab.fa-spotify 
+                                span Open on Spotify
+                        each artist in album.info.artists
+                            div.column.is-narrow
+                                a.button.is-info(href="/artist/" + artist.id) 
+                                    span.icon
+                                        i.fas.fa-users 
+                                    span= artist.name
+
+    section.section
+        div.container
+            h2.title.is-2.has-text-light Tracks
+            table.table.is-bordered
+                thead
+                    tr
+                        th #
+                        th Name
+                        th Duration
+                        th Spotify URL
+                each track in album.tracks.items
+                    - var duration = new Date(track.duration_ms)
+                    tr
+                        th= track.track_number
+                        td= track.name
+                        td #{duration.getUTCMinutes()}:#{duration.getUTCSeconds()} 
+                        td
+                            a.button.is-success(href=track.external_urls.spotify, target="_blank") 
+                                span.icon
+                                    i.fab.fa-spotify 
+                                span Open on Spotify
+    
+    section.section
+        div.container
+            h2.title.is-2.has-text-light Countries Available
+            div.list.is-hoverable
+                each country in album.info.available_markets
+                    if country in countriesJSON
+                        p.list-item= countriesJSON[country]
+                    else
+                        p.list-item= country
+
+
+    

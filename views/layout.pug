@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bulma/bulma.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/font-awesome/css/all.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    script(src="/jquery/jquery.min.js")
+    script(type="text/javascript", src="/javascripts/navbar.js")
+  body.has-background-dark
+    include includes/navbar 
+    main
+      if !user
+        article.message.is-warning
+          div.message-header
+            p Warning
+            button.delete(aria-label="delete")
+          div.message-body 
+            | In order to use this app, you need to 
+            a(href="/auth/spotify") log in
+            |  with your Spotify Account.
+      else
+        block content
+    include includes/footer
