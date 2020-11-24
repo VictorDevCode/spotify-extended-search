@@ -45,8 +45,3 @@ Open [localhost:3000](http://localhost:3000/) in your favorite browser.
 - [Bulma](https://bulma.io/): CSS Framework.
 - [passport-spotify](https://github.com/jmperez/passport-spotify): Spotify authentication strategy for Passport and Node.js.
 - [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node): A Node.js wrapper for Spotify's Web API.
-
-
-## License
-
-This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 - see the [LICENSE](LICENSE) file for details
