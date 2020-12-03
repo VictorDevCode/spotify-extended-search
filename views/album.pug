@@ -55,12 +55,15 @@ block content
     section.section
         div.container
             h2.title.is-2.has-text-light Countries Available
-            div.list.is-hoverable
-                each country in album.info.available_markets
-                    if country in countriesJSON
-                        p.list-item= countriesJSON[country]
-                    else
-                        p.list-item= country
+            div.table-container
+                table.table.is-hoverable
+                    tbody
+                        each country in album.info.available_markets
+                            tr
+                                if country in countriesJSON
+                                    td.list-item= countriesJSON[country]
+                                else
+                                    td.list-item= country
 
 
     
