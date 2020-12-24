@@ -6,8 +6,9 @@ Spotify extended search using its Web API.
 
 With this web application you can:
 
-- Search artists and get additional information such as their genres.
-- Search albums and get additional information such as the countries they are available.
+- Search artists and get information such as their genres and albums.
+- Search albums and get additional information such as their artists and the countries they are available.
+- Search tracks.
 
 ## Getting Started
 Make sure that your computer has installed Node.js and NPM:
@@ -30,10 +31,11 @@ It's necessary to get your own Spotify API Client ID and Secret keys. This can b
 
 Add ``http://localhost:3000/callback`` to your Redirect URIs from your Application Settings in the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
 
-Start the application by running:
+## Start the Application
 
+Run the application in a development environment:
 ```
-npm start
+npm run dev
 ```
 
 Open [localhost:3000](http://localhost:3000/) in your favorite browser.
