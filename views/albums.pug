@@ -21,7 +21,7 @@ block content
                     each album in searchResults
                         div.column.is-3                                           
                             div.card
-                                a(href="/album/" + album.id)
+                                a(href="/albums/" + album.id)
                                     div.card-image
                                         figure.image.is-square
                                             if album.images[0]
@@ -45,7 +45,7 @@ block content
                                             p.title.is-5 Artist(s):
                                             div.buttons
                                                 each artist in album.artists
-                                                    a.button.is-info(href="artist/" + artist.id) 
+                                                    a.button.is-info(href="artists/" + artist.id) 
                                                         span.icon
                                                             i.fas.fa-users 
                                                         span= artist.name

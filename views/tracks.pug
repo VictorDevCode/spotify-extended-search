@@ -33,7 +33,7 @@ block content
                                     div.content 
                                         div
                                             p.title.is-5 From the #{track.album.album_type}:
-                                            a.button.is-info(href="album/" + track.album.id) 
+                                            a.button.is-info(href="albums/" + track.album.id) 
                                                 span.icon
                                                     i.fas.fa-compact-disc 
                                                 span= track.album.name                                            
@@ -44,7 +44,7 @@ block content
                                                 p.title.is-5 Artists:
                                             div.buttons
                                                 each artist in track.artists
-                                                    a.button.is-info(href="artist/" + artist.id) 
+                                                    a.button.is-info(href="artists/" + artist.id) 
                                                         span.icon
                                                             i.fas.fa-users 
                                                         span= artist.name

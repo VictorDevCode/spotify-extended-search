@@ -9,11 +9,9 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 var SpotifyWebApi = require('spotify-web-api-node');
 spotifyApi = new SpotifyWebApi;
 var indexRouter = require('./routes/index');
-var artistsRouter = require('./routes/artists');
-var artistRouter = require('./routes/artist');
-var albumRouter = require('./routes/album');
-var albumsRouter = require('./routes/albums');
-var tracksRouter = require('./routes/tracks');
+var artistsRouter = require('./routes/artists.route');
+var albumsRouter = require('./routes/albums.route');
+var tracksRouter = require('./routes/tracks.route');
 
 app = express();
 
@@ -32,8 +30,6 @@ app.use(passport.session());
 // Setting routes
 app.use('/', indexRouter);
 app.use('/artists', artistsRouter);
-app.use('/artist', artistRouter);
-app.use('/album', albumRouter);
 app.use('/albums', albumsRouter);
 app.use('/tracks', tracksRouter);
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
