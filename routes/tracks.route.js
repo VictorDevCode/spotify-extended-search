@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 const tracksController = require('../controllers/tracks.controller');
+
+const router = express.Router();
 
 /* GET tracks page. */
 router.get('/', tracksController.getTracks);

@@ -1,27 +1,22 @@
-var createError = require('http-errors');
-require('dotenv').config();
-var express = require('express');
-var session = require('express-session');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var passport = require('passport');
+const express = require('express');
+const createError = require('http-errors');
 const SpotifyStrategy = require('passport-spotify').Strategy;
-var SpotifyWebApi = require('spotify-web-api-node');
-spotifyApi = new SpotifyWebApi;
-var indexRouter = require('./routes/index');
-var artistsRouter = require('./routes/artists.route');
-var albumsRouter = require('./routes/albums.route');
-var tracksRouter = require('./routes/tracks.route');
+const SpotifyWebApi = require('spotify-web-api-node');
+const session = require('express-session');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+require('dotenv').config();
+
+const app = express();
 const spotifyClientID = process.env.CLIENT_ID;
 const spotifyClientSecret = process.env.CLIENT_SECRET;
-
-app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(session({ secret: process.env.CLIENT_SECRET, resave: true, saveUninitialized: true }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,19 +26,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Setting routes
-app.use('/', indexRouter);
-app.use('/artists', artistsRouter);
-app.use('/albums', albumsRouter);
-app.use('/tracks', tracksRouter);
-app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
-app.use('/bulma', express.static(__dirname + '/node_modules/bulma/css/'));
-app.use('/font-awesome', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
+app.use('/', require('./routes/index'));
+app.use('/artists', require('./routes/artists.route'));
+app.use('/albums', require('./routes/albums.route'));
+app.use('/tracks', require('./routes/tracks.route'));
 
-passport.serializeUser(function(user, done) {
+app.use('/jquery', express.static(path.join(`${__dirname}/node_modules/jquery/dist/`)));
+app.use('/bulma', express.static(path.join(__dirname, '/node_modules/bulma/css/')));
+app.use('/font-awesome', express.static(path.join(__dirname, '/node_modules/@fortawesome/fontawesome-free/')));
+
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
+passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
 
@@ -51,50 +47,50 @@ app.get(
   '/auth/spotify',
   passport.authenticate('spotify', {
     scope: ['user-read-email', 'user-read-private'],
-    showDialog: true
-  })
+    showDialog: true,
+  }),
 );
 
 // Use the SpotifyStrategy within Passport.
+spotifyApi = new SpotifyWebApi();
 passport.use(
   new SpotifyStrategy(
     {
       clientID: spotifyClientID,
       clientSecret: spotifyClientSecret,
-      callbackURL: 'http://localhost:3000/callback'
+      callbackURL: 'http://localhost:3000/callback',
     },
-    function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function() {
+    (accessToken, refreshToken, profile, done) => {
+      process.nextTick(() => {
         spotifyApi.setAccessToken(accessToken);
         spotifyApi.setRefreshToken(refreshToken);
         return done(null, profile);
       });
-    }
-  )
+    },
+  ),
 );
 
 app.get(
   '/callback',
-  passport.authenticate('spotify', { failureRedirect: '/' }),
-  function(req, res) {
+  passport.authenticate('spotify', { failureRedirect: '/' }), (req, res) => {
     res.redirect('/');
-  }
+  },
 );
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {user: req.user});
+  res.render('error', { user: req.user });
 });
 
 module.exports = app;

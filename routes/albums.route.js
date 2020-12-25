@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 const albumsController = require('../controllers/albums.controller');
+
+const router = express.Router();
 
 /* GET albums page. */
 router.get('/', albumsController.getAlbums);
