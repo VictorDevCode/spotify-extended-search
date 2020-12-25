@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+require('dotenv').config();
 var express = require('express');
 var session = require('express-session');
 var path = require('path');
@@ -12,6 +13,8 @@ var indexRouter = require('./routes/index');
 var artistsRouter = require('./routes/artists.route');
 var albumsRouter = require('./routes/albums.route');
 var tracksRouter = require('./routes/tracks.route');
+const spotifyClientID = process.env.CLIENT_ID;
+const spotifyClientSecret = process.env.CLIENT_SECRET;
 
 app = express();
 
@@ -56,8 +59,8 @@ app.get(
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: '',
-      clientSecret: '',
+      clientID: spotifyClientID,
+      clientSecret: spotifyClientSecret,
       callbackURL: 'http://localhost:3000/callback'
     },
     function(accessToken, refreshToken, profile, done) {
