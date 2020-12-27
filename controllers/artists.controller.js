@@ -25,7 +25,12 @@ artistsController.getArtist = async (req, res) => {
   await spotifyApi.getArtistAlbums(req.params.id, { include_groups: 'album,single,compilation', limit: 50 }).then(
     (data) => {
       artist.discography = data.body.items;
-      res.render('artists/artistDetails', { user: req.user, artist });
+      res.render('artists/artistDetails',
+        {
+          user: req.user,
+          artist,
+          title: `Spotify API Showcase - Artist - ${artist.info.name}`,
+        });
     },
     (err) => {
       console.error(err);

@@ -30,7 +30,13 @@ albumsController.getAlbum = async (req, res) => {
   await spotifyApi.getAlbumTracks(req.params.id, { limit: 50 })
     .then((data) => {
       album.tracks = data.body;
-      res.render('albums/albumDetails', { user: req.user, album, countriesJSON });
+      res.render('albums/albumDetails',
+        {
+          user: req.user,
+          album,
+          countriesJSON,
+          title: `Spotify API Showcase - Album - ${album.info.name}`,
+        });
     }, (err) => {
       console.error(err);
     });
