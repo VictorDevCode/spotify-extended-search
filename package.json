@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "lint": "npx eslint . --ext .js; exit 0",
+    "lint:fix": "npx eslint . --ext .js --fix; exit 0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",

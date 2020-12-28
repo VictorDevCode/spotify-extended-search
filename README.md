@@ -44,7 +44,7 @@ cp .env.example .env
 
 - Once Obtained your Spotify API Client ID and Secret keys, add them to you .env file.
 
-- Add ``http://localhost:3000/callback`` to your Redirect URIs from your Application Settings in the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
+- Add ``http://localhost:3000/callback`` to your Redirect URIs from your application Settings in the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
 
 ## Start the Application: 
 
@@ -54,3 +54,15 @@ npm run dev
 ```
 
 - Open [localhost:3000](http://localhost:3000/) in your favorite browser.
+
+## Run Linter:
+
+- Run eslint without automatic code fixes:
+```
+npm run lint
+```
+
+- Run eslint with automatic code fixes:
+```
+npm run lint:fix
+```
