@@ -4,7 +4,13 @@ artistsController.getArtists = async (req, res) => {
   if (req.query.name !== undefined) {
     await spotifyApi.searchArtists(req.query.name, { limit: 10, market: ['JP', 'PA', 'US'] })
       .then((data) => {
-        res.render('artists/artistsSearch', { user: req.user, searchResults: data.body.artists.items, title: 'Spotify API Showcase - Search Artists Results' });
+        res.render('artists/artistsSearch',
+          {
+            user: req.user,
+            searchResults: data.body.artists.items,
+            title: 'Spotify API Showcase - Search Artists Results',
+            searchValue: req.query.name,
+          });
       }, (err) => {
         console.error(err);
       });

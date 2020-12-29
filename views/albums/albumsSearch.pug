@@ -8,7 +8,7 @@ block content
                     form(action="/albums", method="get")
                         div.field.has-addons.is-horizontal
                             div.control.is-expanded
-                                input.input(type="text", name="name", placeholder="Search Album")
+                                input.input(type="text", name="name", placeholder="Search Album" value=searchValue)
                             div.control
                                 input.button.is-link(type="submit" value="Search")
             if searchResults

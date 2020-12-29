@@ -10,6 +10,7 @@ albumsController.getAlbums = async (req, res) => {
             user: req.user,
             searchResults: data.body.albums.items,
             title: 'Spotify API Showcase - Search Albums Results',
+            searchValue: req.query.name,
           });
       }, (err) => {
         console.error(err);
