@@ -12,7 +12,7 @@ artistsController.getArtists = async (req, res) => {
             searchValue: req.query.name,
           });
       }, (err) => {
-        console.error(err);
+        res.render('error', { error: err });
       });
   } else {
     res.render('artists/artistsSearch', { user: req.user, title: 'Spotify API Showcase - Search Artists' });
@@ -25,7 +25,7 @@ artistsController.getArtist = async (req, res) => {
     .then((data) => {
       artist.info = data.body;
     }, (err) => {
-      console.error(err);
+      res.render('error', { error: err });
     });
 
   await spotifyApi.getArtistAlbums(req.params.id, { include_groups: 'album,single,compilation', limit: 50 }).then(
@@ -39,7 +39,7 @@ artistsController.getArtist = async (req, res) => {
         });
     },
     (err) => {
-      console.error(err);
+      res.render('error', { error: err });
     },
   );
 };

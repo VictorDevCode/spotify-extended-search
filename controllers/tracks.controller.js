@@ -12,7 +12,7 @@ tracksController.getTracks = async (req, res) => {
             searchValue: req.query.name,
           });
       }, (err) => {
-        console.error(err);
+        res.render('error', { error: err });
       });
   } else {
     res.render('tracks/tracksSearch', { user: req.user, title: 'Spotify API Showcase - Search Tracks' });
