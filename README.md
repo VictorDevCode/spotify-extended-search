@@ -37,7 +37,7 @@ npm install
 - Create your local environment file by copying the example contained in the repository:
 
 ```
-cp .env.example .env
+cp config/.env.example .env
 ```
 
 - It's necessary to get your own Spotify API Client ID and Secret keys. This can be done visiting the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
