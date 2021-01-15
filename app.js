@@ -10,8 +10,6 @@ const passport = require('passport');
 require('dotenv').config();
 
 const app = express();
-const spotifyClientID = process.env.CLIENT_ID;
-const spotifyClientSecret = process.env.CLIENT_SECRET;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,8 +54,8 @@ spotifyApi = new SpotifyWebApi();
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: spotifyClientID,
-      clientSecret: spotifyClientSecret,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: 'http://localhost:3000/callback',
     },
     (accessToken, refreshToken, profile, done) => {
