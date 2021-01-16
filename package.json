@@ -21,7 +21,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "http-errors": "^1.8.0",
-    "jquery": "^3.5.1",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-spotify": "^1.1.0",

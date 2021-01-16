@@ -29,7 +29,6 @@ app.use('/artists', require('./routes/artists.route'));
 app.use('/albums', require('./routes/albums.route'));
 app.use('/tracks', require('./routes/tracks.route'));
 
-app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist/')));
 app.use('/bulma', express.static(path.join(__dirname, '/node_modules/bulma/css/')));
 app.use('/font-awesome', express.static(path.join(__dirname, '/node_modules/@fortawesome/fontawesome-free/')));
 
