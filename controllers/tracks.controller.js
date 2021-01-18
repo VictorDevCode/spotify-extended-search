@@ -2,7 +2,7 @@ const tracksController = {};
 
 tracksController.getTracks = async (req, res) => {
   if (req.query.name !== undefined) {
-    await spotifyApi.searchTracks(req.query.name, { limit: 25, market: ['JP', 'PA', 'US'] })
+    await req.app.locals.spotifyApi.searchTracks(req.query.name, { limit: 25, market: ['JP', 'PA', 'US'] })
       .then((data) => {
         res.render('tracks/tracksSearch',
           {

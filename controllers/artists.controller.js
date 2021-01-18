@@ -2,7 +2,7 @@ const artistsController = {};
 
 artistsController.getArtists = async (req, res) => {
   if (req.query.name !== undefined) {
-    await spotifyApi.searchArtists(req.query.name, { limit: 10, market: ['JP', 'PA', 'US'] })
+    await req.app.locals.spotifyApi.searchArtists(req.query.name, { limit: 10, market: ['JP', 'PA', 'US'] })
       .then((data) => {
         res.render('artists/artistsSearch',
           {
@@ -21,14 +21,14 @@ artistsController.getArtists = async (req, res) => {
 
 artistsController.getArtist = async (req, res) => {
   const artist = {};
-  await spotifyApi.getArtist(req.params.id)
+  await req.app.locals.spotifyApi.getArtist(req.params.id)
     .then((data) => {
       artist.info = data.body;
     }, (err) => {
       res.render('error', { error: err });
     });
 
-  await spotifyApi.getArtistAlbums(req.params.id, { include_groups: 'album,single,compilation', limit: 50 }).then(
+  await req.app.locals.spotifyApi.getArtistAlbums(req.params.id, { include_groups: 'album,single,compilation', limit: 50 }).then(
     (data) => {
       artist.discography = data.body.items;
       res.render('artists/artistDetails',

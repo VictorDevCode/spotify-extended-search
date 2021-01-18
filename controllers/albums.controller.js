@@ -3,7 +3,7 @@ const countriesJSON = require('../public/json/countries_ISO_3166-1_alpha-2.json'
 
 albumsController.getAlbums = async (req, res) => {
   if (req.query.name !== undefined) {
-    await spotifyApi.searchAlbums(req.query.name, { limit: 25, market: ['JP', 'PA', 'US'] })
+    await req.app.locals.spotifyApi.searchAlbums(req.query.name, { limit: 25, market: ['JP', 'PA', 'US'] })
       .then((data) => {
         res.render('albums/albumsSearch',
           {
@@ -22,13 +22,13 @@ albumsController.getAlbums = async (req, res) => {
 
 albumsController.getAlbum = async (req, res) => {
   const album = {};
-  await spotifyApi.getAlbum(req.params.id)
+  await req.app.locals.spotifyApi.getAlbum(req.params.id)
     .then((data) => {
       album.info = data.body;
     }, (err) => {
       res.render('error', { error: err });
     });
-  await spotifyApi.getAlbumTracks(req.params.id, { limit: 50 })
+  await req.app.locals.spotifyApi.getAlbumTracks(req.params.id, { limit: 50 })
     .then((data) => {
       album.tracks = data.body;
       res.render('albums/albumDetails',

@@ -48,8 +48,9 @@ app.get(
   }),
 );
 
+
 // Use the SpotifyStrategy within Passport.
-spotifyApi = new SpotifyWebApi();
+app.locals.spotifyApi = new SpotifyWebApi();
 passport.use(
   new SpotifyStrategy(
     {
@@ -59,8 +60,8 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       process.nextTick(() => {
-        spotifyApi.setAccessToken(accessToken);
-        spotifyApi.setRefreshToken(refreshToken);
+        app.locals.spotifyApi.setAccessToken(accessToken);
+        app.locals.spotifyApi.setRefreshToken(refreshToken);
         return done(null, profile);
       });
     },
