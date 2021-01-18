@@ -75,9 +75,9 @@ app.get(
 );
 
 // Set logout route
-app.get("/logout", function (req, res) {
+app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 // catch 404 and forward to error handler
