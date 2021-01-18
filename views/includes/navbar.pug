@@ -24,11 +24,21 @@ nav.navbar.is-black(role="navigation", aria-label="main navigation")
                     span Tracks
 
             div.navbar-end
-                div.navbar-item
-                    if user
-                        a(href=user.profileUrl)
+                if user
+                    div.navbar-item.has-dropdown.is-hoverable
+                        a.navbar-link
                             span.icon
                                 i.fab.fa-spotify
                             span Logged as: #{user.username}
-                    else 
+                        div.navbar-dropdown
+                            a.navbar-item(href=user.profileUrl)
+                                span.icon
+                                    i.fas.fa-user
+                                span My Profile
+                            a.navbar-item(href="/logout")
+                                span.icon
+                                    i.fas.fa-sign-out-alt
+                                span Logout
+                else 
+                    div.navbar-item
                         a(href="/auth/spotify") Log in with Spotify
