@@ -44,7 +44,9 @@ block content
                     - var duration = new Date(track.duration_ms)
                     tr
                         th= track.track_number
-                        td= track.name
+                        td
+                            a(href="/tracks/" + track.id)
+                                span #{track.name}
                         td #{duration.getUTCMinutes()}:#{duration.getUTCSeconds()} 
                         td
                             a.button.is-success(href=track.external_urls.spotify, target="_blank") 

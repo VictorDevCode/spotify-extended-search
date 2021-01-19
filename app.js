@@ -48,7 +48,6 @@ app.get(
   }),
 );
 
-
 // Use the SpotifyStrategy within Passport.
 app.locals.spotifyApi = new SpotifyWebApi();
 passport.use(
