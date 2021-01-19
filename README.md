@@ -14,9 +14,9 @@ Spotify extended search using its Web API.
 
 With this web application you can:
 
-- Search artists and get information such as their genres and albums.
+- Search artists and get additional information such as their genres and albums.
 - Search albums and get additional information such as their artists and the countries they are available.
-- Search tracks.
+- Search tracks and get additional information such as ther countries the are available.
 
 ## Getting Started:
 - Make sure that your computer has installed Node.js and NPM:
