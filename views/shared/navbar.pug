@@ -1,4 +1,4 @@
-nav.navbar.is-black(role="navigation", aria-label="main navigation")
+nav.navbar.is-black.is-fixed-top(role="navigation", aria-label="main navigation")
     div.container
         div.navbar-brand
             a.navbar-item.has-text-weight-bold(href="/") Spotify API Showcase
@@ -6,7 +6,6 @@ nav.navbar.is-black(role="navigation", aria-label="main navigation")
                 span(aria-hidden="true")
                 span(aria-hidden="true")
                 span(aria-hidden="true")
-
 
         div#navbarMenu.navbar-menu
             div.navbar-start
@@ -29,7 +28,7 @@ nav.navbar.is-black(role="navigation", aria-label="main navigation")
                         a.navbar-link
                             span.icon
                                 i.fab.fa-spotify
-                            span Logged as: #{user.username}
+                            span Logged as: #{user.displayName}
                         div.navbar-dropdown
                             a.navbar-item(href=user.profileUrl)
                                 span.icon

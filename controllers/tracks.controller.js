@@ -2,15 +2,15 @@ const tracksController = {};
 const countriesJSON = require('../public/json/countries_ISO_3166-1_alpha-2.json');
 
 tracksController.getTracks = async (req, res) => {
-  if (req.query.name !== undefined) {
-    await req.app.locals.spotifyApi.searchTracks(req.query.name, { limit: 25, market: ['JP', 'PA', 'US'] })
+  if (req.query.search !== undefined) {
+    await req.app.locals.spotifyApi.searchTracks(req.query.search, { limit: 25, market: ['JP', 'PA', 'US'] })
       .then((data) => {
         res.render('tracks/tracksSearch',
           {
-            user: req.user,
             searchResults: data.body.tracks.items,
+            searchValue: req.query.search,
             title: 'Spotify API Showcase - Search Tracks Results',
-            searchValue: req.query.name,
+            user: req.user,
           });
       }, (err) => {
         res.render('error', { error: err });

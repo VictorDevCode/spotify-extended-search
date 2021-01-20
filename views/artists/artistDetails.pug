@@ -9,7 +9,10 @@ block content
                         img.is-rounded(src=artist.info.images[0].url)
                 div.column
                     h1.title.is-1.has-text-light #{artist.info.name}
-                        span.tag.is-info.is-medium.is-capitalized #{artist.info.type}
+                        div.tag.is-info.is-medium.is-capitalized
+                            span.icon
+                                i.fas.fa-users
+                            span #{artist.info.type}
                     div.columns
                         div.column
                             a.button.is-success(href=artist.info.external_urls.spotify, target="_blank")

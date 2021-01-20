@@ -7,8 +7,8 @@ html
     link(rel='stylesheet', href='/font-awesome/css/all.css')
     meta(name="viewport", content="width=device-width, initial-scale=1")
     script(type="text/javascript", src="/javascripts/navbar.js")
-  body.has-background-dark
-    include includes/navbar
+  body.has-background-dark.has-navbar-fixed-top
+    include shared/navbar
     main
       if !user
         article.message.is-warning
@@ -17,8 +17,7 @@ html
             button.delete(aria-label="delete")
           div.message-body
             | In order to use this app, you need to
-            a(href="/auth/spotify") log in
+            a(href="/auth/spotify")  log in
             |  with your Spotify Account.
       else
         block content
-    include includes/footer

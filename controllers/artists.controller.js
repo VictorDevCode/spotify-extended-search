@@ -1,16 +1,16 @@
-const _ = require('lodash/core');
 const artistsController = {};
+const _ = require('lodash/core');
 
 artistsController.getArtists = async (req, res) => {
-  if (req.query.name !== undefined) {
-    await req.app.locals.spotifyApi.searchArtists(req.query.name, { limit: 10, market: ['JP', 'PA', 'US'] })
+  if (req.query.search !== undefined) {
+    await req.app.locals.spotifyApi.searchArtists(req.query.search, { limit: 10, market: ['JP', 'PA', 'US'] })
       .then((data) => {
         res.render('artists/artistsSearch',
           {
-            user: req.user,
             searchResults: data.body.artists.items,
+            searchValue: req.query.search,
             title: 'Spotify API Showcase - Search Artists Results',
-            searchValue: req.query.name,
+            user: req.user,
           });
       }, (err) => {
         res.render('error', { error: err });
@@ -38,9 +38,9 @@ artistsController.getArtist = async (req, res) => {
       artist.discography.appears_on = _.filter(data.body.items, { album_group: 'appears_on' });
       res.render('artists/artistDetails',
         {
-          user: req.user,
           artist,
           title: `Spotify API Showcase - Artist - ${artist.info.name}`,
+          user: req.user,
         });
     },
     (err) => {

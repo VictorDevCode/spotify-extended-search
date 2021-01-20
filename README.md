@@ -32,7 +32,7 @@ node -v
 - After cloning this repository is necessary to install the necessary node modules:
 
 ```
-npm install
+npm i
 ```
 - Create your local environment file by copying the example contained in the repository:
 
@@ -46,7 +46,7 @@ cp config/.env.example .env
 
 - Add ``http://localhost:3000/callback`` to your Redirect URIs from your application Settings in the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
 
-## Start the Application: 
+## Start the Application:
 
 - Run the application in a development environment:
 ```
