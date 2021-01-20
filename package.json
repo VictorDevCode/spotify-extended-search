@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "http-errors": "^1.8.0",
+    "lodash": "^4.17.20",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-spotify": "^1.1.0",

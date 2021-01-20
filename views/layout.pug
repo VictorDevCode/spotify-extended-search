@@ -8,15 +8,15 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1")
     script(type="text/javascript", src="/javascripts/navbar.js")
   body.has-background-dark
-    include includes/navbar 
+    include includes/navbar
     main
       if !user
         article.message.is-warning
           div.message-header
             p Warning
             button.delete(aria-label="delete")
-          div.message-body 
-            | In order to use this app, you need to 
+          div.message-body
+            | In order to use this app, you need to
             a(href="/auth/spotify") log in
             |  with your Spotify Account.
       else

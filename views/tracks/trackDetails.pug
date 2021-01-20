@@ -12,29 +12,29 @@ block content
                         div.tag.is-info.is-medium.is-capitalized
                             span.icon
                                 i.fas.fa-music
-                            span Track   
+                            span Track
                         div.tag.is-info.is-medium
                             span.icon
                                 i.far.fa-calendar
                             span= track.album.release_date
                     div.columns
                         div.column.is-narrow
-                            a.button.is-success(href=track.external_urls.spotify, target="_blank") 
+                            a.button.is-success(href=track.external_urls.spotify, target="_blank")
                                 span.icon
-                                    i.fab.fa-spotify 
+                                    i.fab.fa-spotify
                                 span Open on Spotify
                         div.column.is-narrow
-                            a.button.is-info(href="/albums/" + track.album.id) 
+                            a.button.is-info(href="/albums/" + track.album.id)
                                 span.icon
                                     i.fas.fa-compact-disc
                                 span= track.album.name
                         each artist in track.artists
                             div.column.is-narrow
-                                a.button.is-info(href="/artists/" + artist.id) 
+                                a.button.is-info(href="/artists/" + artist.id)
                                     span.icon
-                                        i.fas.fa-users 
+                                        i.fas.fa-users
                                     span= artist.name
-    
+
     section.section
         div.container
             h2.title.is-2.has-text-light Countries Available

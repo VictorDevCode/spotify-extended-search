@@ -19,7 +19,7 @@ block content
                         div.message-body No albums were found with your search criteria
                 div.columns.is-multiline
                     each album in searchResults
-                        div.column.is-3                                           
+                        div.column.is-3
                             div.card
                                 a(href="/albums/" + album.id)
                                     div.card-image
@@ -31,8 +31,8 @@ block content
                                 div.card-content
                                     div.media-content
                                         p.title.is-4= album.name
-                                    div.content 
-                                        div.tags.are-medium 
+                                    div.content
+                                        div.tags.are-medium
                                             div.tag.is-info.is-capitalized
                                                 span.icon
                                                     i.fas.fa-compact-disc
@@ -45,10 +45,10 @@ block content
                                             p.title.is-5 Artist(s):
                                             div.buttons
                                                 each artist in album.artists
-                                                    a.button.is-info(href="artists/" + artist.id) 
+                                                    a.button.is-info(href="artists/" + artist.id)
                                                         span.icon
-                                                            i.fas.fa-users 
+                                                            i.fas.fa-users
                                                         span= artist.name
 
-                                        
+
 

@@ -1,3 +1,4 @@
+const _ = require('lodash/core');
 const artistsController = {};
 
 artistsController.getArtists = async (req, res) => {
@@ -28,9 +29,13 @@ artistsController.getArtist = async (req, res) => {
       res.render('error', { error: err });
     });
 
-  await req.app.locals.spotifyApi.getArtistAlbums(req.params.id, { include_groups: 'album,single,compilation', limit: 50 }).then(
+  await req.app.locals.spotifyApi.getArtistAlbums(req.params.id, { limit: 50 }).then(
     (data) => {
-      artist.discography = data.body.items;
+      artist.discography = {};
+      artist.discography.singles = _.filter(data.body.items, { album_group: 'single' });
+      artist.discography.albums = _.filter(data.body.items, { album_group: 'album' });
+      artist.discography.compilations = _.filter(data.body.items, { album_group: 'compilation' });
+      artist.discography.appears_on = _.filter(data.body.items, { album_group: 'appears_on' });
       res.render('artists/artistDetails',
         {
           user: req.user,

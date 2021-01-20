@@ -12,22 +12,22 @@ block content
                         div.tag.is-info.is-medium.is-capitalized
                             span.icon
                                 i.fas.fa-compact-disc
-                            span #{album.info.album_type}                        
+                            span #{album.info.album_type}
                         div.tag.is-info.is-medium
                             span.icon
                                 i.far.fa-calendar
                             span= album.info.release_date
                     div.columns
                         div.column.is-narrow
-                            a.button.is-success(href=album.info.external_urls.spotify, target="_blank") 
+                            a.button.is-success(href=album.info.external_urls.spotify, target="_blank")
                                 span.icon
-                                    i.fab.fa-spotify 
+                                    i.fab.fa-spotify
                                 span Open on Spotify
                         each artist in album.info.artists
                             div.column.is-narrow
-                                a.button.is-info(href="/artists/" + artist.id) 
+                                a.button.is-info(href="/artists/" + artist.id)
                                     span.icon
-                                        i.fas.fa-users 
+                                        i.fas.fa-users
                                     span= artist.name
 
     section.section
@@ -47,13 +47,13 @@ block content
                         td
                             a(href="/tracks/" + track.id)
                                 span #{track.name}
-                        td #{duration.getUTCMinutes()}:#{duration.getUTCSeconds()} 
+                        td #{duration.getUTCMinutes()}:#{duration.getUTCSeconds()}
                         td
-                            a.button.is-success(href=track.external_urls.spotify, target="_blank") 
+                            a.button.is-success(href=track.external_urls.spotify, target="_blank")
                                 span.icon
-                                    i.fab.fa-spotify 
+                                    i.fab.fa-spotify
                                 span Open on Spotify
-    
+
     section.section
         div.container
             h2.title.is-2.has-text-light Countries Available
@@ -68,4 +68,3 @@ block content
                                     td.list-item= country
 
 
-    

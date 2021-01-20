@@ -19,7 +19,7 @@ block content
                         div.message-body No albums were found with your search criteria
                 div.columns.is-multiline
                     each track in searchResults
-                        div.column.is-3                                           
+                        div.column.is-3
                             div.card
                                 a(href="/tracks/" + track.id)
                                     div.card-image
@@ -31,13 +31,13 @@ block content
                                 div.card-content
                                     div.media-content
                                         p.title.is-4= track.name
-                                    div.content 
+                                    div.content
                                         div
                                             p.title.is-5 From the #{track.album.album_type}:
-                                            a.button.is-info(href="albums/" + track.album.id) 
+                                            a.button.is-info(href="albums/" + track.album.id)
                                                 span.icon
-                                                    i.fas.fa-compact-disc 
-                                                span= track.album.name                                            
+                                                    i.fas.fa-compact-disc
+                                                span= track.album.name
                                         div
                                             if track.artists.length === 1
                                                 p.title.is-5 Artist:
@@ -45,12 +45,12 @@ block content
                                                 p.title.is-5 Artists:
                                             div.buttons
                                                 each artist in track.artists
-                                                    a.button.is-info(href="artists/" + artist.id) 
+                                                    a.button.is-info(href="artists/" + artist.id)
                                                         span.icon
-                                                            i.fas.fa-users 
+                                                            i.fas.fa-users
                                                         span= artist.name
                                 footer.card-footer
-                                    a.card-footer-item(href=track.external_urls.spotify, target="_blank") 
+                                    a.card-footer-item(href=track.external_urls.spotify, target="_blank")
                                         span.icon
-                                            i.fab.fa-spotify  
+                                            i.fab.fa-spotify
                                         span Open on Spotify
