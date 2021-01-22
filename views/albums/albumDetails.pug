@@ -41,13 +41,15 @@ block content
                         th Duration
                         th Spotify URL
                 each track in album.tracks.items
-                    - var duration = new Date(track.duration_ms)
+                    - let trackDuration = new Date(track.duration_ms)
+                    - let trackDurationMinutes = trackDuration.getUTCMinutes()
+                    - let trackDurationSeconds = (trackDuration.getUTCSeconds() < 10) ? "0" + trackDuration.getUTCSeconds() : trackDuration.getUTCSeconds()
                     tr
                         th= track.track_number
                         td
                             a(href="/tracks/" + track.id)
                                 span #{track.name}
-                        td #{duration.getUTCMinutes()}:#{duration.getUTCSeconds()}
+                        td #{trackDurationMinutes}:#{trackDurationSeconds}
                         td
                             a.button.is-success(href=track.external_urls.spotify, target="_blank")
                                 span.icon
