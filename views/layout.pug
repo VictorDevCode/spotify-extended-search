@@ -10,14 +10,4 @@ html
   body.has-background-dark.has-navbar-fixed-top
     include shared/navbar
     main
-      if !user
-        article.message.is-warning
-          div.message-header
-            p Warning
-            button.delete(aria-label="delete")
-          div.message-body
-            | In order to use this app, you need to
-            a(href="/auth/spotify")  log in
-            |  with your Spotify Account.
-      else
-        block content
+      block content

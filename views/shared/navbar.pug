@@ -8,19 +8,20 @@ nav.navbar.is-black.is-fixed-top(role="navigation", aria-label="main navigation"
                 span(aria-hidden="true")
 
         div#navbarMenu.navbar-menu
-            div.navbar-start
-                a.navbar-item(href="/artists")
-                    span.icon
-                        i.fas.fa-users
-                    span Artists
-                a.navbar-item(href="/albums")
-                    span.icon
-                        i.fas.fa-compact-disc
-                    span Albums
-                a.navbar-item(href="/tracks")
-                    span.icon
-                        i.fas.fa-music
-                    span Tracks
+            if user
+                div.navbar-start
+                    a.navbar-item(href="/artists")
+                        span.icon
+                            i.fas.fa-users
+                        span Artists
+                    a.navbar-item(href="/albums")
+                        span.icon
+                            i.fas.fa-compact-disc
+                        span Albums
+                    a.navbar-item(href="/tracks")
+                        span.icon
+                            i.fas.fa-music
+                        span Tracks
 
             div.navbar-end
                 if user

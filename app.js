@@ -4,9 +4,9 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 const SpotifyWebApi = require('spotify-web-api-node');
 const session = require('express-session');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
+const isAuthenticated = require('./middlewares/isAuthenticated');
 require('dotenv').config();
 
 const app = express();
@@ -18,16 +18,15 @@ app.use(session({ secret: process.env.CLIENT_SECRET, resave: true, saveUninitial
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Setting routes
 app.use('/', require('./routes/index'));
-app.use('/artists', require('./routes/artists.route'));
-app.use('/albums', require('./routes/albums.route'));
-app.use('/tracks', require('./routes/tracks.route'));
+app.use('/artists', isAuthenticated, require('./routes/artists.route'));
+app.use('/albums', isAuthenticated, require('./routes/albums.route'));
+app.use('/tracks', isAuthenticated, require('./routes/tracks.route'));
 
 app.use('/bulma', express.static(path.join(__dirname, '/node_modules/bulma/css/')));
 app.use('/font-awesome', express.static(path.join(__dirname, '/node_modules/@fortawesome/fontawesome-free/')));

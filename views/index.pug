@@ -1,6 +1,15 @@
 extends layout
 
 block content
+  if !user
+    article.message.is-warning
+      div.message-header
+        p Warning
+        button.delete(aria-label="delete")
+      div.message-body
+        | In order to use this app, you need to
+        a(href="/auth/spotify")  log in
+        |  with your Spotify Account.
   section.hero#page_description_section
     div.hero-body
       div.container
@@ -18,7 +27,6 @@ block content
           div.column.is-offset-1
             h3.title Search Artists
             p.subtitle With Spotify API you can obtain additional info about your favorite artists like their genres.
-            a.button.is-black.is-outlined(href="/artists") Go to Search Artists Page
         div.columns.is-vcentered.is-centered
           div.column.is-narrow.is-offset-1
             span.icon
@@ -26,7 +34,6 @@ block content
           div.column.is-offset-1
             h3.title Search Albums
             p.subtitle With Spotify API you can obtain additional info about your favorite albums like the countries that they are available.
-            a.button.is-black.is-outlined(href="/albums") Go to Search Albums Page
         div.columns.is-vcentered.is-centered
           div.column.is-narrow.is-offset-1
             span.icon
@@ -34,5 +41,4 @@ block content
           div.column.is-offset-1
             h3.title Search Tracks
             p.subtitle With Spotify API you can obtain additional info about your favorite tracks like the countries that they are available.
-            a.button.is-black.is-outlined(href="/tracks") Go to Search Tracks Page
 
