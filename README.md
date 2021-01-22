@@ -1,24 +1,16 @@
-# Spotify API Showcase
+# Spotify Extended Search
 
-Spotify extended search using its Web API.
-
-## Developed With:
-- [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/): Node.js web application framework.
-- [Pug](https://pugjs.org): Node.js template engine.
-- [Bulma](https://bulma.io/): CSS Framework.
-- [passport-spotify](https://github.com/jmperez/passport-spotify): Spotify authentication strategy for Passport and Node.js.
-- [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node): A Node.js wrapper for Spotify's Web API.
+Extended search of artists, albums and tracks using Spotify's API.
 
 ## Current Features:
-
 With this web application you can:
 
 - Search artists and get additional information such as their genres and albums.
 - Search albums and get additional information such as their artists and the countries they are available.
 - Search tracks and get additional information such as ther countries the are available.
 
-## Getting Started:
+## Project's Configuration:
+
 - Make sure that your computer has installed Node.js and NPM:
 
 ```
@@ -70,3 +62,11 @@ npm run lint:fix
 ```
 npm run test
 ```
+
+## Developed With:
+- [Node.js](https://nodejs.org/en/): Javascript runtime for the development of web applications.
+- [Express](https://expressjs.com/): Node.js web application framework.
+- [Pug](https://pugjs.org): Template engine for Node.js.
+- [Bulma](https://bulma.io/): CSS Framework.
+- [passport-spotify](https://github.com/jmperez/passport-spotify): Spotify authentication strategy for Passport and Node.js.
+- [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node): A Node.js wrapper for Spotify's Web API.
