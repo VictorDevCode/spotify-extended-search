@@ -66,3 +66,7 @@ npm run lint
 ```
 npm run lint:fix
 ```
+## Run tests:
+```
+npm run test
+```

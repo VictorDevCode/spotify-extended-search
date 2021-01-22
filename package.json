@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "lint": "npx eslint . --ext .js; exit 0",
-    "lint:fix": "npx eslint . --ext .js --fix; exit 0"
+    "lint:fix": "npx eslint . --ext .js --fix; exit 0",
+    "test": "mocha"
   },
   "engines": {
     "node": ">=14.15.4"
@@ -28,10 +29,13 @@
     "spotify-web-api-node": "^5.0.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^7.16.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.6"
   }
 }
