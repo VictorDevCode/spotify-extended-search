@@ -7,7 +7,8 @@
     "dev": "nodemon ./bin/www",
     "lint": "npx eslint . --ext .js; exit 0",
     "lint:fix": "npx eslint . --ext .js --fix; exit 0",
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "nyc npm run test"
   },
   "engines": {
     "node": ">=14.15.4"
@@ -36,7 +37,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "mocha": "^8.2.1",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0"
   },
   "license": "MIT",
   "repository": {

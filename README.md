@@ -63,6 +63,11 @@ npm run lint:fix
 npm run test
 ```
 
+## Generate Code Coverage Report:
+```
+npm run coverage
+```
+
 ## Developed With:
 - [Node.js](https://nodejs.org/en/): Javascript runtime for the development of web applications.
 - [Express](https://expressjs.com/): Node.js web application framework.
