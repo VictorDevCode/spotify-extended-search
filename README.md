@@ -6,13 +6,21 @@ Extended search of artists, albums and tracks using Spotify's API.
 With this web application you can:
 
 - Search artists and get additional information such as their genres and albums.
+
+![Search artists](/screenshots/search_artists.jpg)
+![Artist page](/screenshots/artist_page.jpg)
+
 - Search albums and get additional information such as their artists and the countries they are available.
+
+![Album page](/screenshots/album_page.png)
+
 - Search tracks and get additional information such as ther countries the are available.
+
+![Track page](/screenshots/track_page.png)
 
 ## Project's Configuration:
 
 - Make sure that your computer has installed Node.js and NPM:
-
 ```
 npm -v
 ```
