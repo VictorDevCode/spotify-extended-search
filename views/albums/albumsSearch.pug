@@ -42,10 +42,13 @@ block content
                                                     i.far.fa-calendar
                                                 span= new Date(album.release_date).getFullYear()
                                         div
-                                            p.title.is-5 Artist(s):
+                                            if album.artists.length === 1
+                                                p.title.is-5 Artist:
+                                            else if album.artists.length > 1
+                                               p.title.is-5 Artists:
                                             div.buttons
                                                 each artist in album.artists
-                                                    a.button.is-info(href="artists/" + artist.id)
+                                                    a.button.is-info.is-fullwidth.is-block(href="artists/" + artist.id)
                                                         span.icon
                                                             i.fas.fa-users
                                                         span= artist.name
