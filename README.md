@@ -75,6 +75,18 @@ npm run test
 ```
 npm run coverage
 ```
+## Dockerize the App:
+- Build the Docker image:
+```
+docker build -t spotify-extended-search .
+```
+
+- Run the Docker image:
+```
+docker run -p 3000:3000 -d spotify-extended-search
+```
+
+- Open [localhost:3000](http://localhost:3000/) in your favorite browser.
 
 ## Developed With:
 - [Node.js](https://nodejs.org/en/): Javascript runtime for the development of web applications.
