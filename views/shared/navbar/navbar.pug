@@ -1,0 +1,30 @@
+include navbarMixins
+
+nav.navbar.is-black.is-fixed-top(role="navigation", aria-label="main navigation")
+    div.container
+        div.navbar-brand
+            a.navbar-item.has-text-weight-bold(href="/") Spotify Extended Search
+            a.navbar-burger.burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarMenu")
+                span(aria-hidden="true")
+                span(aria-hidden="true")
+                span(aria-hidden="true")
+
+        div#navbarMenu.navbar-menu
+            if user
+                div.navbar-start
+                    +navbarItem('/artists', 'fas fa-users', 'Artists')
+                    +navbarItem('/albums', 'fas fa-compact-disc', 'Albums')
+                    +navbarItem('/tracks', 'fas fa-music', 'Tracks')
+
+            div.navbar-end
+                if user
+                    div.navbar-item.has-dropdown.is-hoverable
+                        a.navbar-link
+                            span.icon
+                                i.fab.fa-spotify
+                            span Logged as: #{user.displayName}
+                        div.navbar-dropdown
+                            +navbarItem(user.profileUrl, 'fas fa-user', 'My Profile')
+                            +navbarItem("/logout", 'fas fa-sign-out-alt', 'Logout')
+                else
+                    +navbarItem('/auth/spotify', 'fab fa-spotify', 'Log in with Spotify')
