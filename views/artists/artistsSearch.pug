@@ -1,16 +1,10 @@
 extends ../layout
+include ../shared/searchbar/searchBarMixin
 
 block content
     section.section
         div.container
-            div.columns.is-centered
-                div.column.is-half
-                    form#searchArtistForm(action="/artists", method="get")
-                        div.field.has-addons.is-horizontal
-                            div.control.is-expanded
-                                input.input#searArtistInput(type="text", name="search", placeholder="Search Artist", value=searchValue)
-                            div.control
-                                input.button.is-link#searArtistSubmitButton(type="submit" value="Search")
+            +searchBar("/artists", "Search Artists")
             if searchResults
                 if searchResults.length === 0
                       article.message.is-warning
