@@ -1,5 +1,6 @@
 extends ../layout
 include ../shared/searchbar/searchBarMixin
+include ../shared/card/cardMixins
 
 block content
     section.section
@@ -15,13 +16,7 @@ block content
                     each album in searchResults
                         div.column.is-3
                             div.card
-                                a(href="/albums/" + album.id)
-                                    div.card-image
-                                        figure.image.is-square
-                                            if album.images[0]
-                                                img(src=album.images[0].url, alt="Album Image")
-                                            else
-                                                img(src="https://dummyimage.com/640x640/000/fff.jpg&text=No+Image", alt="Album Image")
+                                +cardImage("/albums/" + album.id, album.images, "Album Image")
                                 div.card-content
                                     div.media-content
                                         p.title.is-4= album.name
