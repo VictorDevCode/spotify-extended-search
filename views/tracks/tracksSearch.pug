@@ -1,5 +1,6 @@
 extends ../layout
 include ../shared/searchbar/searchBarMixin
+include ../shared/card/cardMixins
 
 block content
     section.section
@@ -43,8 +44,4 @@ block content
                                                         span.icon
                                                             i.fas.fa-users
                                                         span= artist.name
-                                footer.card-footer
-                                    a.card-footer-item(href=track.external_urls.spotify, target="_blank")
-                                        span.icon
-                                            i.fab.fa-spotify
-                                        span Open on Spotify
+                                +cardFooter(track.external_urls.spotify)
