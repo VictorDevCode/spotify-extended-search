@@ -1,0 +1,7 @@
+mixin albumTypeTranslation(albumType)
+    if albumType === 'album'
+        span= t('common:album')
+    else if albumType === 'single'
+        span= t('common:single')
+    else if albumType === 'compilation'
+        span= t('common:compilation')

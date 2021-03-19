@@ -12,42 +12,42 @@ block content
                         div.tag.is-info.is-medium.is-capitalized
                             span.icon
                                 i.fas.fa-users
-                            span #{artist.info.type}
+                            span= t('common:artist')
                     div.columns
                         div.column
                             a.button.is-success(href=artist.info.external_urls.spotify, target="_blank")
                                 span.icon
                                     i.fab.fa-spotify
-                                span Open on Spotify
+                                span= t('common:open_on_spotify')
 
     if artist.info.genres.length > 0
         section.section
             div.container
-                h2.title.is-2.has-text-light Genres
+                h2.title.is-2.has-text-light= t('common:genres')
                     div.tags
                         each genre in artist.info.genres
                             span.tag.is-large.is-primary.is-capitalized= genre
 
     section.section
         div.container
-            h2.title.is-2.has-text-light Discography
+            h2.title.is-2.has-text-light= t('artists:discography')
                 if artist.discography.albums.length > 0
-                    h3.title.is-3.has-text-light Albums
+                    h3.title.is-3.has-text-light= t('common:album_plural')
                     div.columns.is-multiline
                         each album in artist.discography.albums
                             include includes/discsCardDeck
                 if artist.discography.singles.length > 0
-                    h3.title.is-3.has-text-light Singles
+                    h3.title.is-3.has-text-light= t('common:single_plural')
                     div.columns.is-multiline
                         each album in artist.discography.singles
                             include includes/discsCardDeck
                 if artist.discography.compilations.length > 0
-                    h3.title.is-3.has-text-light Compilations
+                    h3.title.is-3.has-text-light= t('common:compilation_plural')
                     div.columns.is-multiline
                         each album in artist.discography.compilations
                             include includes/discsCardDeck
                 if artist.discography.appears_on.length > 0
-                    h3.title.is-3.has-text-light Appears On
+                    h3.title.is-3.has-text-light= t('artists:appears_on')
                     div.columns.is-multiline
                         each album in artist.discography.appears_on
                             include includes/discsCardDeck

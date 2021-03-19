@@ -1,0 +1,20 @@
+{
+    "app_name": "Spotify Extended Search",
+    "album": "Álbum",
+    "album_plural": "Álbumes",
+    "artist": "Artista",
+    "artist_plural": "Artistas",
+    "available_in": "Disponible en",
+    "compilation": "Recopilatorio",
+    "compilation_plural": "Recopilatorios ",
+    "country": "País",
+    "country_plural": "Países",
+    "duration": "Duración",
+    "genres": "Géneros",
+    "open_on_spotify": "Abrir en Spotify",
+    "single": "Sencillo",
+    "single_plural": "Sencillos",
+    "title": "Título",
+    "track": "Canción",
+    "track_plural": "Canciones"
+}

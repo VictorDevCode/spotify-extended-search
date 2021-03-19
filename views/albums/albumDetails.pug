@@ -1,4 +1,5 @@
 extends ../layout
+include ../shared/translations/translationsMixins
 
 block content
     section.section
@@ -12,7 +13,7 @@ block content
                         div.tag.is-info.is-medium.is-capitalized
                             span.icon
                                 i.fas.fa-compact-disc
-                            span #{album.info.album_type}
+                            +albumTypeTranslation(album.info.album_type)
                         div.tag.is-info.is-medium
                             span.icon
                                 i.far.fa-calendar
@@ -22,7 +23,7 @@ block content
                             a.button.is-success(href=album.info.external_urls.spotify, target="_blank")
                                 span.icon
                                     i.fab.fa-spotify
-                                span Open on Spotify
+                                span= t("common:open_on_spotify")
                         each artist in album.info.artists
                             div.column.is-narrow
                                 a.button.is-info(href="/artists/" + artist.id)
@@ -32,14 +33,14 @@ block content
 
     section.section
         div.container
-            h2.title.is-2.has-text-light Tracks
+            h2.title.is-2.has-text-light.is-capitalized= t('common:track', {count: album.tracks.items.length})
             table.table.is-bordered
                 thead
                     tr
                         th #
-                        th Name
-                        th Duration
-                        th Spotify URL
+                        th= t('common:title')
+                        th= t('common:duration')
+                        th
                 each track in album.tracks.items
                     - let trackDuration = new Date(track.duration_ms)
                     - let trackDurationMinutes = trackDuration.getUTCMinutes()
@@ -54,11 +55,11 @@ block content
                             a.button.is-success(href=track.external_urls.spotify, target="_blank")
                                 span.icon
                                     i.fab.fa-spotify
-                                span Open on Spotify
+                                span= t('common:open_on_spotify')
 
     section.section
         div.container
-            h2.title.is-2.has-text-light Available in
+            h2.title.is-2.has-text-light= t('common:available_in')
             div.table-container
                 table.table.is-hoverable
                     tbody

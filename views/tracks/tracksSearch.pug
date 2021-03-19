@@ -1,17 +1,15 @@
 extends ../layout
 include ../shared/searchbar/searchBarMixin
 include ../shared/card/cardMixins
+include ../shared/message/messageMixins
 
 block content
     section.section
         div.container
-            +searchBar("/tracks", "Search Tracks")
+            +searchBar("/tracks", t('tracks:search_tracks'))
             if searchResults
                 if searchResults.length === 0
-                      article.message.is-warning
-                        div.message-header
-                            p Warning
-                        div.message-body No albums were found with your search criteria
+                    +message('message is-warning', t('tracks:no_tracks_found'))
                 div.columns.is-multiline
                     each track in searchResults
                         div.column.is-3
@@ -21,18 +19,11 @@ block content
                                     div.media-content
                                         p.title.is-4= track.name
                                     div.content
-                                        div
-                                            p.title.is-5 From the #{track.album.album_type}:
+                                        div.buttons
                                             a.button.is-info.is-fullwidth.is-block(href="albums/" + track.album.id)
                                                 span.icon
                                                     i.fas.fa-compact-disc
                                                 span= track.album.name
-                                        div
-                                            if track.artists.length === 1
-                                                p.title.is-5 Artist:
-                                            else if track.artists.length > 1
-                                                p.title.is-5 Artists:
-                                            div.buttons
                                                 each artist in track.artists
                                                     a.button.is-info.is-fullwidth.is-block(href="artists/" + artist.id)
                                                         span.icon

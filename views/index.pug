@@ -1,15 +1,9 @@
 extends layout
+include shared/message/messageMixins
 
 block content
   if !user
-    article.message.is-warning
-      div.message-header
-        p Warning
-        button.delete(aria-label="delete")
-      div.message-body
-        | In order to use this app, you need to
-        a(href="/auth/spotify")  log in
-        |  with your Spotify Account.
+    +message('message is-warning', t('index:guest_warning'))
   section.hero#page_description_section
     div.hero-body
       div.container
