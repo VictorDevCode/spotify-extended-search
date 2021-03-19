@@ -42,13 +42,10 @@ block content
 
     section.section
         div.container
-            h2.title.is-2.has-text-light Available in
+            h2.title.is-2.has-text-light= t('common:available_in')
             div.table-container
                 table.table.is-hoverable
                     tbody
-                        each country in track.available_markets
+                        each market in track.available_markets
                             tr
-                                if country in countriesJSON
-                                    td.list-item= countriesJSON[country]
-                                else
-                                    td.list-item= country
+                                td.list-item= t(`markets:${market}`)

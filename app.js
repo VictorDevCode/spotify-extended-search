@@ -35,7 +35,7 @@ i18next
   .use(i18nextBackend)
   .use(i18nextMiddleware.LanguageDetector)
   .init({
-    ns: ['albums', 'artists', 'common', 'index', 'navbar', 'tracks'],
+    ns: ['albums', 'artists', 'common', 'index', 'markets', 'navbar', 'tracks'],
     lng: 'us',
     fallbackLng: 'es',
     preload: ['en', 'es'],

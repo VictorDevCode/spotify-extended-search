@@ -1,5 +1,4 @@
 const tracksController = {};
-const countriesJSON = require('../public/json/countries_ISO_3166-1_alpha-2.json');
 
 tracksController.getTracks = async (req, res) => {
   if (req.query.search !== undefined) {
@@ -32,7 +31,6 @@ tracksController.getTrack = async (req, res) => {
   await req.app.locals.spotifyApi.getTrack(req.params.id).then(
     (data) => {
       res.render('tracks/trackDetails', {
-        countriesJSON,
         title: `${req.t('common:app_name')} -
         ${req.t('common:track')} -
         ${data.body.name}`,

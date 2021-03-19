@@ -1,5 +1,4 @@
 const albumsController = {};
-const countriesJSON = require('../public/json/countries_ISO_3166-1_alpha-2.json');
 
 albumsController.getAlbums = async (req, res) => {
   if (req.query.search !== undefined) {
@@ -45,7 +44,6 @@ albumsController.getAlbum = async (req, res) => {
         album.tracks = data.body;
         res.render('albums/albumDetails', {
           album,
-          countriesJSON,
           title: `${req.t('common:app_name')} -
           ${req.t('common:album')} -
           ${album.info.name}`,
