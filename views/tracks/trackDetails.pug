@@ -12,7 +12,7 @@ block content
                         div.tag.is-info.is-medium.is-capitalized
                             span.icon
                                 i.fas.fa-music
-                            span Track
+                            span= t('common:track')
                         div.tag.is-info.is-medium
                             span.icon
                                 i.far.fa-calendar
@@ -22,7 +22,7 @@ block content
                             a.button.is-success(href=track.external_urls.spotify, target="_blank")
                                 span.icon
                                     i.fab.fa-spotify
-                                span Open on Spotify
+                                span= t('common:open_on_spotify')
                         div.column.is-narrow
                             a.button.is-info(href="/albums/" + track.album.id)
                                 span.icon

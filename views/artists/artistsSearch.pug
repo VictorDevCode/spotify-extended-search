@@ -1,17 +1,15 @@
 extends ../layout
 include ../shared/searchbar/searchBarMixin
 include ../shared/card/cardMixins
+include ../shared/message/messageMixins
 
 block content
     section.section
         div.container
-            +searchBar("/artists", "Search Artists")
+            +searchBar("/artists", t('artists:search_artists'))
             if searchResults
                 if searchResults.length === 0
-                      article.message.is-warning
-                        div.message-header
-                            p Warning
-                        div.message-body No artists were found with your search criteria
+                    +message('message is-warning', t('artists:no_artists_found'))
                 div.columns.is-multiline
                     each artist in searchResults
                         div.column.is-desktop.is-3

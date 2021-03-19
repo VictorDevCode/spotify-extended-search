@@ -3,3 +3,6 @@ mixin navbarItem(href, icon, text)
         span.icon
            i(class=icon)
         span= text
+
+mixin navbarLangItem(language, languageCode)
+    a(class='navbar-item' href='/lang/' + languageCode)= language
