@@ -1,38 +1,26 @@
 extends layout
 include shared/message/messageMixins
+include shared/card/cardMixins
 
 block content
-  if !user
-    +message('message is-warning', t('index:guest_warning'))
-  section.hero#page_description_section
-    div.hero-body
-      div.container
-        h1.title.has-text-light Spotify API Showcase
-        h2.subtitle.has-text-light Extended search using Spotify API.
+  section.hero.is-fullheight
+    div.hero-body.hero-image
+      div.container.has-text-centered
+        span.icon
+          i.fab.fa-spotify.fa-5x.has-text-light
+        h3.is-size-3.has-text-light.has-text-centered= t('index:hero_text')
+        if !user
+          h4.is-size-4.has-text-warning= t('index:guest_warning')
+        div.buttons.is-justify-content-center
+          a.button.is-success.is-rounded.is-medium(href="#main-features")= t('index:learn_more')
+          if !user
+            a.button.is-success.is-rounded.is-medium(href="/auth/spotify")= t('common:login')
 
-  section.hero.is-medium.is-light.is-bold
-    div.hero-body
-      div.container
-        h2.title Main Features
-        div.columns.is-vcentered.is-centered
-          div.column.is-narrow.is-offset-1
-            span.icon
-              i.fas.fa-users.fa-5x
-          div.column.is-offset-1
-            h3.title Search Artists
-            p.subtitle With Spotify API you can obtain additional info about your favorite artists like their genres.
-        div.columns.is-vcentered.is-centered
-          div.column.is-narrow.is-offset-1
-            span.icon
-              i.fas.fa-compact-disc.fa-5x
-          div.column.is-offset-1
-            h3.title Search Albums
-            p.subtitle With Spotify API you can obtain additional info about your favorite albums like the countries that they are available.
-        div.columns.is-vcentered.is-centered
-          div.column.is-narrow.is-offset-1
-            span.icon
-              i.fas.fa-music.fa-5x
-          div.column.is-offset-1
-            h3.title Search Tracks
-            p.subtitle With Spotify API you can obtain additional info about your favorite tracks like the countries that they are available.
 
+  section.section#main-features
+      div.container
+        div.columns.is-multiline
+          +featureCard("fas fa-users fa-5x has-text-success", t('common:artist_plural'), t('index:artists_section_description'))
+          +featureCard("fas fa-compact-disc fa-5x has-text-success", t('common:album_plural'), t('index:album_section_description'))
+          +featureCard("fas fa-music fa-5x has-text-success", t('common:track_plural'), t('index:track_section_description'))
+          +featureCard("fas fa-language fa-5x has-text-success", t('index:multilingual'), t('index:multilingual_feature_description'))

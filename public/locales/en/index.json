@@ -1,3 +1,10 @@
 {
-    "guest_warning": "In order to use this app, you need to log in with your Spotify Account."
+    "album_section_description": "Search albums and get information such as their artists and the territories they are available.",
+    "artists_section_description": "Search artists and get information such as their music genres and albums.",
+    "hero_text": "Know more about your favorites artists, albums and tracks",
+    "learn_more": "Learn More",
+    "multilingual": "Multilingual",
+    "multilingual_feature_description": "You can enjoy this app in multiple languages.",
+    "guest_warning": "In order to use this app, you need to log in with your Spotify Account.",
+    "track_section_description": "Search tracks and get information such as the territories they are available."
 }

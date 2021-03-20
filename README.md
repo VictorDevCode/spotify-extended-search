@@ -1,6 +1,7 @@
 # Spotify Extended Search
 
-Extended search of artists, albums and tracks using Spotify's API.
+Extended search of artists, albums and tracks using Spotify's web API.
+![Home page](/screenshots/home_page.png)
 
 ## Current Features:
 
@@ -8,8 +9,7 @@ With this web application you can:
 
 - Search artists and get additional information such as their genres and albums.
 
-![Search artists](/screenshots/search_artists.jpg)
-![Artist page](/screenshots/artist_page.jpg)
+![Artist page](/screenshots/artist_page.png)
 
 - Search albums and get additional information such as their artists and the countries they are available.
 
@@ -110,3 +110,4 @@ docker run -p 3000:3000 -d spotify-extended-search
 - [passport-spotify](https://github.com/jmperez/passport-spotify): Spotify authentication strategy for Passport and Node.js.
 - [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node): A Node.js wrapper for Spotify's Web API.
 - [i18next](https://www.i18next.com/): Internationalization framework.
+- [Home page's hero background image](https://www.pexels.com/photo/woman-listening-on-headphones-374703/).

@@ -1,3 +1,10 @@
 {
-    "guest_warning": "Para utilizar esta app, debe iniciar sesión con su cuenta de Spotify."
+    "album_section_description": "Busque álbumes y obtenga información como sus artistas y los territorios en que se encuentran disponibles.",
+    "artists_section_description": "Busque artistas y obtenga información como sus géneros musicales y álbumes.",
+    "hero_text": "Conozca más sobre sus artistas, álbumes y canciones favoritas",
+    "learn_more": "Aprenda Más",
+    "multilingual": "Multilingüe",
+    "multilingual_feature_description": "Usted puede disfrutar de esta aplicación en varios idiomas.",
+    "guest_warning": "Para utilizar esta app, debe iniciar sesión con su cuenta de Spotify.",
+    "track_section_description": "Busque canciones y obtenga información los territorios en que se encuentran disponibles."
 }
