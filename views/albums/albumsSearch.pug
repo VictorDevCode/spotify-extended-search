@@ -17,9 +17,8 @@ block content
                             div.card
                                 +cardImage("/albums/" + album.id, album.images, "Album Image")
                                 div.card-content
-                                    div.media-content
-                                        p.title.is-4= album.name
                                     div.content
+                                        p.title.is-4= album.name
                                         div.tags.are-medium
                                             div.tag.is-info.is-capitalized
                                                 span.icon
@@ -31,9 +30,7 @@ block content
                                                 span= new Date(album.release_date).getFullYear()
                                             div.buttons
                                                 each artist in album.artists
-                                                    a.button.is-info.is-fullwidth.is-block(href="artists/" + artist.id)
+                                                    a.button.is-info(href="artists/" + artist.id)
                                                         span.icon
                                                             i.fas.fa-users
                                                         span= artist.name
-                                +cardFooter(album.external_urls.spotify)
-

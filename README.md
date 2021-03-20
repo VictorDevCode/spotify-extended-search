@@ -111,3 +111,4 @@ docker run -p 3000:3000 -d spotify-extended-search
 - [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node): A Node.js wrapper for Spotify's Web API.
 - [i18next](https://www.i18next.com/): Internationalization framework.
 - [Home page's hero background image](https://www.pexels.com/photo/woman-listening-on-headphones-374703/).
+- [Font Awesome](https://fontawesome.com/): Icons set.

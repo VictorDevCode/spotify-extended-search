@@ -40,7 +40,6 @@ block content
                         th #
                         th= t('common:title')
                         th= t('common:duration')
-                        th
                 each track in album.tracks.items
                     - let trackDuration = new Date(track.duration_ms)
                     - let trackDurationMinutes = trackDuration.getUTCMinutes()
@@ -51,11 +50,6 @@ block content
                             a(href="/tracks/" + track.id)
                                 span #{track.name}
                         td #{trackDurationMinutes}:#{trackDurationSeconds}
-                        td
-                            a.button.is-success(href=track.external_urls.spotify, target="_blank")
-                                span.icon
-                                    i.fab.fa-spotify
-                                span= t('common:open_on_spotify')
 
     section.section
         div.container

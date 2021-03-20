@@ -5,9 +5,8 @@ div.column.is-3
     div.card
         +cardImage("/albums/" + album.id, album.images, "Album Image")
         div.card-content
-            div.media-content
-                h5.title.is-5= album.name
             div.content
+                h5.title.is-5= album.name
                 div.tags.are-medium
                     div.tag.is-info.is-capitalized
                         span.icon
@@ -21,4 +20,3 @@ div.column.is-3
                         span.icon
                             i.far.fa-calendar
                         span= new Date(album.release_date).getFullYear()
-        +cardFooter(album.external_urls.spotify)
