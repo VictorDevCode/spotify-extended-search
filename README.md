@@ -3,7 +3,7 @@
 Extended search of artists, albums and tracks using Spotify's web API.
 ![Home page](/screenshots/home_page.png)
 
-## Current Features:
+## Current Features
 
 With this web application you can:
 
@@ -19,7 +19,7 @@ With this web application you can:
 
 ![Track page](/screenshots/track_page.png)
 
-## Project's Configuration:
+## Project's Configuration
 
 - Make sure that your computer has installed Node.js and NPM:
 
@@ -31,7 +31,7 @@ npm -v
 node -v
 ```
 
-- After cloning this repository is necessary to install the necessary node modules:
+- After cloning this repository it is necessary to install the necessary node modules:
 
 ```
 npm i
@@ -49,7 +49,7 @@ cp config/.env.example .env
 
 - Add `http://localhost:3000/callback` to your Redirect URIs from your application Settings in the [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/) website.
 
-## Start the Application:
+## Start the Application
 
 - Run the application in a development environment:
 
@@ -59,7 +59,7 @@ npm run dev
 
 - Open [localhost:3000](http://localhost:3000/) in your favorite browser.
 
-## Run Linter:
+## Run Linter
 
 - Run eslint without automatic code fixes:
 
@@ -73,19 +73,19 @@ npm run lint
 npm run lint:fix
 ```
 
-## Run tests:
+## Run Tests:
 
 ```
 npm run test
 ```
 
-## Generate Code Coverage Report:
+## Generate Code Coverage Report
 
 ```
 npm run coverage
 ```
 
-## Dockerize the App:
+## Dockerize the App
 
 - Build the Docker image:
 
@@ -101,7 +101,7 @@ docker run -p 3000:3000 -d spotify-extended-search
 
 - Open [localhost:3000](http://localhost:3000/) in your favorite browser.
 
-## Developed With:
+## Developed With
 
 - [Node.js](https://nodejs.org/en/): Javascript runtime for the development of web applications.
 - [Express](https://expressjs.com/): Node.js web application framework.
