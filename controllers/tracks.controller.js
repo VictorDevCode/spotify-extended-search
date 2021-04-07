@@ -12,6 +12,7 @@ tracksController.getTracks = async (req, res) => {
             title: `${req.t('common:app_name')} -
                     ${req.t('tracks:search_tracks')}`,
             user: req.user,
+            meta_description: req.t(`index:track_section_description`),
           });
         },
         (err) => {
@@ -23,6 +24,7 @@ tracksController.getTracks = async (req, res) => {
       user: req.user,
       title: `${req.t('common:app_name')} -
       ${req.t('tracks:search_tracks')}`,
+      meta_description: req.t(`index:track_section_description`),
     });
   }
 };
@@ -36,6 +38,7 @@ tracksController.getTrack = async (req, res) => {
         ${data.body.name}`,
         track: data.body,
         user: req.user,
+        meta_description: req.t(`index:track_section_description`),
       });
     },
     (err) => {

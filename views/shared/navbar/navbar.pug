@@ -1,38 +1,36 @@
 include navbarMixins
 
 nav.navbar.is-black.is-fixed-top(role="navigation", aria-label="main navigation")
-    div.container
-        div.navbar-brand
-            a.navbar-item.has-text-weight-bold(href="/")= t('common:app_name')
-            a.navbar-burger.burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarMenu")
-                span(aria-hidden="true")
-                span(aria-hidden="true")
+    div.navbar-brand
+        a.navbar-item.has-text-weight-bold(href="/")= t('common:app_name')
+        a.navbar-burger.burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarMenu")
+            each val in [1, 2, 3]
                 span(aria-hidden="true")
 
-        div#navbarMenu.navbar-menu
+    div#navbarMenu.navbar-menu
+        if user
+            div.navbar-start
+                +navbarItem('/artists', 'fas fa-users', t('common:artist_plural'))
+                +navbarItem('/albums', 'fas fa-compact-disc', t('common:album_plural'))
+                +navbarItem('/tracks', 'fas fa-music', t('common:track_plural'))
+
+        div.navbar-end
+            div.navbar-item.has-dropdown.is-hoverable
+                div.navbar-link
+                    span.icon
+                        i.fas.fa-language
+                    span= t('navbar:language')
+                div.navbar-dropdown
+                    +navbarLangItem('English', 'en')
+                    +navbarLangItem('Spanish', 'es')
             if user
-                div.navbar-start
-                    +navbarItem('/artists', 'fas fa-users', t('common:artist_plural'))
-                    +navbarItem('/albums', 'fas fa-compact-disc', t('common:album_plural'))
-                    +navbarItem('/tracks', 'fas fa-music', t('common:track_plural'))
-
-            div.navbar-end
                 div.navbar-item.has-dropdown.is-hoverable
-                    a.navbar-link
+                    div.navbar-link
                         span.icon
-                            i.fas.fa-language
-                        span= t('navbar:language')
+                            i.fab.fa-spotify
+                        span #{user.displayName}
                     div.navbar-dropdown
-                        +navbarLangItem(t('navbar:languages.english'), 'en')
-                        +navbarLangItem(t('navbar:languages.spanish'), 'es')
-                if user
-                    div.navbar-item.has-dropdown.is-hoverable
-                        a.navbar-link
-                            span.icon
-                                i.fab.fa-spotify
-                            span #{user.displayName}
-                        div.navbar-dropdown
-                            +navbarItem(user.profileUrl, 'fas fa-user', t('navbar:my_profile'))
-                            +navbarItem("/logout", 'fas fa-sign-out-alt', t('navbar:logout'))
-                else
-                    +navbarItem('/auth/spotify', 'fab fa-spotify', t('common:login'))
+                        +navbarItem(user.profileUrl, 'fas fa-user', t('navbar:my_profile'))
+                        +navbarItem("/logout", 'fas fa-sign-out-alt', t('navbar:logout'))
+            else
+                +navbarItem('/auth/spotify', 'fab fa-spotify', t('common:login'))

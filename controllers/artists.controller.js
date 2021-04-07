@@ -16,6 +16,7 @@ artistsController.getArtists = async (req, res) => {
             title: `${req.t('common:app_name')} -
                     ${req.t('artists:search_artists')}`,
             user: req.user,
+            meta_description: req.t(`index:artists_section_description`),
           });
         },
         (err) => {
@@ -27,6 +28,7 @@ artistsController.getArtists = async (req, res) => {
       user: req.user,
       title: `${req.t('common:app_name')} -
               ${req.t('artists:search_artists')}`,
+      meta_description: req.t(`index:artists_section_description`),
     });
   }
 };
@@ -65,6 +67,7 @@ artistsController.getArtist = async (req, res) => {
                   ${req.t('common:artist')} -
                   ${artist.info.name}`,
           user: req.user,
+          meta_description: req.t(`index:artists_section_description`),
         });
       },
       (err) => {

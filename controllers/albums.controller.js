@@ -12,6 +12,7 @@ albumsController.getAlbums = async (req, res) => {
             title: `${req.t('common:app_name')} -
                     ${req.t('albums:search_albums')}`,
             user: req.user,
+            meta_description: req.t(`index:album_section_description`),
           });
         },
         (err) => {
@@ -23,6 +24,7 @@ albumsController.getAlbums = async (req, res) => {
       user: req.user,
       title: `${req.t('common:app_name')} -
       ${req.t('albums:search_albums')}`,
+      meta_description: req.t(`index:album_section_description`),
     });
   }
 };
@@ -48,6 +50,7 @@ albumsController.getAlbum = async (req, res) => {
           ${req.t('common:album')} -
           ${album.info.name}`,
           user: req.user,
+          meta_description: req.t(`index:album_section_description`),
         });
       },
       (err) => {

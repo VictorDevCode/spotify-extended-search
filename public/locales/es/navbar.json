@@ -1,9 +1,5 @@
 {
     "language": "Idioma",
-    "languages": {
-        "english": "English",
-        "spanish": "Español"
-    },
     "logout": "Cerrar Sesión",
     "my_profile": "Mi Perfil"
 }

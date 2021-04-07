@@ -54,7 +54,7 @@ i18next
 app.use(i18nextMiddleware.handle(i18next));
 
 // Setting routes
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/index.route'));
 app.use('/artists', isAuthenticated, require('./routes/artists.route'));
 app.use('/albums', isAuthenticated, require('./routes/albums.route'));
 app.use('/tracks', isAuthenticated, require('./routes/tracks.route'));

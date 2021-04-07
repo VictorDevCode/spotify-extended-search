@@ -7,7 +7,7 @@ block content
             div.columns.is-vcentered
                 div.column.is-narrow
                     figure.image.is-128x128
-                        img.is-rounded(src=album.info.images[0].url)
+                        img.is-rounded(src=album.info.images[0].url, alt=t("albums:album_cover_img_alt"))
                 div.column
                     h1.title.is-1.has-text-light #{album.info.name}
                         div.tag.is-info.is-medium.is-capitalized
