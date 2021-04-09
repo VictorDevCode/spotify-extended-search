@@ -7,6 +7,7 @@ albumsController.getAlbums = async (req, res) => {
       .then(
         (data) => {
           res.render('albums/albumsSearch', {
+            lang: req.language,
             searchResults: data.body.albums.items,
             searchValue: req.query.search,
             title: `${req.t('common:app_name')} -
@@ -21,6 +22,7 @@ albumsController.getAlbums = async (req, res) => {
       );
   } else {
     res.render('albums/albumsSearch', {
+      lang: req.language,
       user: req.user,
       title: `${req.t('common:app_name')} -
       ${req.t('albums:search_albums')}`,
@@ -46,6 +48,7 @@ albumsController.getAlbum = async (req, res) => {
         album.tracks = data.body;
         res.render('albums/albumDetails', {
           album,
+          lang: req.language,
           title: `${req.t('common:app_name')} -
           ${req.t('common:album')} -
           ${album.info.name}`,

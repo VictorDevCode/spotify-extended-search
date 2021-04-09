@@ -1,4 +1,5 @@
 {
     "no_tracks_found": "No tracks were found with this search criteria.",
-    "search_tracks": "Search Tracks"
+    "search_tracks": "Search Tracks",
+    "track_cover_img_alt": "Track's cover image"
 }

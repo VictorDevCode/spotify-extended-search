@@ -1,4 +1,5 @@
 {
     "no_tracks_found": "No se encontraron canciones con este criterio de búsqueda.",
-    "search_tracks": "Buscar Canciones"
+    "search_tracks": "Buscar Canciones",
+    "track_cover_img_alt": "Image de portada de la canción"
 }

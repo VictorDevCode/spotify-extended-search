@@ -6,7 +6,7 @@ mixin searchBar(action, placeholder)
                     div.control.is-expanded
                         input.input(type="text", name="search", placeholder=placeholder value=searchValue)
                     div.control
-                        button.button.is-info(type="submit")
+                        button.button.is-info(aria-label=t('common:search') ,type="submit")
                             i.fas.fa-search
 
 

@@ -11,6 +11,7 @@ artistsController.getArtists = async (req, res) => {
       .then(
         (data) => {
           res.render('artists/artistsSearch', {
+            lang: req.language,
             searchResults: data.body.artists.items,
             searchValue: req.query.search,
             title: `${req.t('common:app_name')} -
@@ -25,6 +26,7 @@ artistsController.getArtists = async (req, res) => {
       );
   } else {
     res.render('artists/artistsSearch', {
+      lang: req.language,
       user: req.user,
       title: `${req.t('common:app_name')} -
               ${req.t('artists:search_artists')}`,
@@ -63,6 +65,7 @@ artistsController.getArtist = async (req, res) => {
         });
         res.render('artists/artistDetails', {
           artist,
+          lang: req.language,
           title: `${req.t('common:app_name')} -
                   ${req.t('common:artist')} -
                   ${artist.info.name}`,
